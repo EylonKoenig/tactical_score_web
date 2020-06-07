@@ -29,7 +29,6 @@ const PlayersLeaderboard   = () => {
         getPlayers();
         getBestPlayers();
     }, []);
-    console.log(bestPlayers);
     return (
         <div style={{display:'flex'}}>
             <table className="table table-hover" style={{display:'block'}}>
