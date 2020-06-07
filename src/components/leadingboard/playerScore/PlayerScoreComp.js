@@ -28,7 +28,7 @@ const PlayerScore = (props) => {
     }
     return (
             <div className={'players-score'}>
-                <img src={`http://localhost:5000/images/${image}`} style={{height:'400px', marginBottom:'10px',marginRight:'10px'}} alt={'score'}/>
+                <img src={`https://tactical.herokuapp.com/images/${image}`} style={{height:'400px', marginBottom:'10px',marginRight:'10px'}} alt={'score'}/>
                 <div className={'player-score'} >
                     <div style={{display:'flex', flexDirection:"column"}}>
                         {playersWon}

@@ -37,6 +37,7 @@ const AddMatch = () => {
     const [selectedLosingTeam, setSelectedLosingTeam] = useState(null);
     const [isUpload, setIsUpload] = useState(false);
     const [gameId, setGameId] = useState(null);
+    const [loading, setLoading] = useState(false);
     const handleWinningChange = selectedOption => {
         setSelectedWinningTeam(selectedOption);
         setFormData({...formData,playersWon: selectedOption})
@@ -64,10 +65,11 @@ const AddMatch = () => {
     const handleImageSubmit = async  (e) =>  {
         e.preventDefault();
         const data = new FormData();
-        if(!imageValidtion[0]) {
+        if(!imageValidtion()[0]) {
             alert(imageValidtion()[1]);
             return
         }
+        setLoading(true);
         for (let i = 0; i < file.length; i++) {
             data.append(`photos`, file[i])
         }
@@ -83,7 +85,8 @@ const AddMatch = () => {
              return [false,"maximum images to upload is 6"]
          }
          for (let i = 0; i < file.length; i++) {
-             if(file[i].size > 80000) return [false,"image size is to large"];
+             console.log(file[i].size);
+             if(file[i].size > 10000000) return [false,"image size is to large"];
          }
          return [true]
      };
@@ -187,7 +190,7 @@ const AddMatch = () => {
                             options={ players}
                         />
                         <small className="form-text">
-                            Please enter the wining team players
+                            Please enter the <b>wining team players</b>
                         </small>
                     </div>
                     <div className="form-group">
@@ -199,7 +202,7 @@ const AddMatch = () => {
                             isMulti
                         />
                         <small className="form-text">
-                            Please enter the losing team players
+                            Please enter the <b>losing team players</b>
                         </small>
                     </div>
                     <div className="form-group">
@@ -208,20 +211,23 @@ const AddMatch = () => {
                 </form>
 
             </div>
-                : <div>
-                        <form  encType="multipart/form-data" onSubmit={(e) => handleImageSubmit(e)} >
-                            <label htmlFor="files">Select files:</label>
-                            <input id={'fileToUpload'}
-                                   type="file"
-                                   name="photos"
-                                   accept="image/*"
-                                   multiple onChange={handleFilesChange}/>
-                            <small className="form-text">
-                                Please add all results photo
-                            </small>
-                            <input type="submit" className="btn btn-primary my-1" value="Submit"/>
-                        </form>
-                  </div>
+                : <div>{!loading ? <div>
+                <form  encType="multipart/form-data" onSubmit={(e) => handleImageSubmit(e)} >
+                <label htmlFor="files">Select files:</label>
+                <input id={'fileToUpload'}
+                type="file"
+                name="photos"
+                accept="image/*"
+                multiple onChange={handleFilesChange}/>
+                <small className="form-text">
+                Please add all results photo
+                </small>
+                <input type="submit" className="btn btn-primary my-1" value="Submit"/>
+                </form>
+                </div>
+             : <div className="loader">Loading...</div>
+                }
+                </div>
             }
         </div>
     )

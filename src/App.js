@@ -19,16 +19,16 @@ const App = () => {
             <Navbar />
               <Route exact path="/" component={ Landing } />
               <Route exact path="/community" component={ Community } />
-              <section className="container">
               <Switch>
+                  <section className="container">
                   <Route exact path="/matches" component={ Matches } />
                   <Route exact path="/match/:id" component={(props) => (<SingelMatch  matchID={props.match.params.id} />)}/>
                   <Route exact path="/players" component={ Players } />
                   <Route exact path="/add_match" component={ addMatch } />
                   <Route exact path="/add_player" component={ AddPlayer } />
                   <Route exact path="/add_player_score" component={ AddPlayerScore } />
+                  </section>
               </Switch>
-            </section>
           </Fragment>
         </Router>
   )};
