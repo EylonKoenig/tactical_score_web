@@ -8,7 +8,7 @@ const Navbar = () => {
             <nav className="navbar">
                 <h1>
                     <Link to="/">
-                        <img src='http://localhost:5000//images/logo.jpg'  style={{width:'300px',height:'50px'}} alt={'logo'}/>
+                        <img src='https://tactical.herokuapp.com/images/logo.jpg'  style={{width:'300px',height:'50px'}} alt={'logo'}/>
                     </Link>
                 </h1>
             </nav>

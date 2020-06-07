@@ -29,9 +29,6 @@ const App = () => {
                   <Route exact path="/add_player_score" component={ AddPlayerScore } />
               </Switch>
             </section>
-              <div style={{position:"absolute",bottom:"0",background:"black"}}>
-                  slkdajkl
-              </div>
           </Fragment>
         </Router>
   )};
