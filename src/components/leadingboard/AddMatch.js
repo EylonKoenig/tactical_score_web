@@ -85,7 +85,6 @@ const AddMatch = () => {
              return [false,"maximum images to upload is 6"]
          }
          for (let i = 0; i < file.length; i++) {
-             console.log(file[i].size);
              if(file[i].size > 10000000) return [false,"image size is to large"];
          }
          return [true]
@@ -218,7 +217,9 @@ const AddMatch = () => {
                 type="file"
                 name="photos"
                 accept="image/*"
-                multiple onChange={handleFilesChange}/>
+                multiple
+                required
+                onChange={handleFilesChange}/>
                 <small className="form-text">
                 Please add all results photo
                 </small>

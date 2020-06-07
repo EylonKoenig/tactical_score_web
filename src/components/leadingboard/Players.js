@@ -8,18 +8,18 @@ const PlayersLeaderboard   = () => {
     useEffect(() => {
         const getPlayers = async () => {
             let playersData = await api.getAllPlayers();
-            function compare( a, b ) {
-                let t1 = a.wonGames / (a.wonGames + a.lostGames);
-                let t2 = b.wonGames / (b.wonGames + b.lostGames);
-                if ( t1 < t2 ){
-                    return 1;
-                }
-                if ( t1 > t2 ){
-                    return -1;
-                }
-                return 0;
-            }
-            playersData =   playersData.sort( compare );
+            // function compare( a, b ) {
+            //     let t1 = a.wonGames / (a.wonGames + a.lostGames);
+            //     let t2 = b.wonGames / (b.wonGames + b.lostGames);
+            //     if ( t1 < t2 ){
+            //         return 1;
+            //     }
+            //     if ( t1 > t2 ){
+            //         return -1;
+            //     }
+            //     return 0;
+            // }
+            // playersData =   playersData.sort( compare );
             setPlayers(playersData);
         };
         const getBestPlayers = async () => {
@@ -29,6 +29,7 @@ const PlayersLeaderboard   = () => {
         getPlayers();
         getBestPlayers();
     }, []);
+    console.log(bestPlayers);
     return (
         <div style={{display:'flex'}}>
             <table className="table table-hover" style={{display:'block'}}>
