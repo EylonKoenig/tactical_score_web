@@ -51,7 +51,7 @@ const Matches = () => {
             <tbody>
             {matches &&
                 matches.reverse().map((game,i) => (
-                    <tr onClick={() => handleGameClick(game["_id"])}>
+                    <tr key={i} onClick={() => handleGameClick(game["_id"])}>
                         <td>{convertDate(game["date"])}</td>
                         <td>{game["score"]}</td>
                         <td>{`${game.firstMap}/${game.secondMap}`}</td>

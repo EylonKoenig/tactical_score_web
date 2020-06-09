@@ -8,19 +8,15 @@ const PlayersLeaderboard   = () => {
     useEffect(() => {
         const getPlayers = async () => {
             let playersData = await api.getAllPlayers();
-            // function compare( a, b ) {
-            //     let t1 = a.wonGames / (a.wonGames + a.lostGames);
-            //     let t2 = b.wonGames / (b.wonGames + b.lostGames);
-            //     if ( t1 < t2 ){
-            //         return 1;
-            //     }
-            //     if ( t1 > t2 ){
-            //         return -1;
-            //     }
-            //     return 0;
-            // }
-            // playersData =   playersData.sort( compare );
             setPlayers(playersData);
+
+            let firstPlaceImg = document.getElementById('tr0').childNodes[0];
+            let secPlaceImg = document.getElementById('tr1').childNodes[0];
+            let thrPlaceImg = document.getElementById('tr2').childNodes[0];
+            firstPlaceImg.innerHTML = "<img id='trophy' src=\"/images/iconfinder_Trophy-gold_85556.png\">"
+            secPlaceImg.innerHTML = "<img id='trophy' src=\"/images/iconfinder_Metal-silver-blue_85535.png\">"
+            thrPlaceImg.innerHTML = "<img id='trophy' src=\"/images/iconfinder_Metal-bronze-blue_85529.png\">"
+
         };
         const getBestPlayers = async () => {
 
@@ -29,12 +25,12 @@ const PlayersLeaderboard   = () => {
         getPlayers();
         getBestPlayers();
     }, []);
-    console.log(bestPlayers);
+
     return (
         <div style={{display:'flex'}}>
-            <table className="table table-hover" style={{display:'block'}}>
+            <table className="table table-hover header-fixed" style={{display:'block'}}>
                 <thead>
-                <tr style={{cursor:'auto'}}>
+                <tr  style={{cursor:'auto'}}>
                     <th scope="col">RK</th>
                     <th scope="col">Player</th>
                     <th scope="col">W/L Ratio</th>
@@ -48,7 +44,7 @@ const PlayersLeaderboard   = () => {
                 <tbody>
                 {players &&
                 players.map((player,i) => (
-                    <tr>
+                    <tr id={`tr${i}`} key={i}>
                             <th scope="row">{i+1}</th>
                             <td>{player.name}</td>
                             <td>{player.winLoseRatio}</td>
