@@ -265,7 +265,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: gray;
 }
 
 .table th,
@@ -609,7 +609,7 @@ background-image: url('http://tacticalops.sytes.net/imagen/cubo.png');
 
 .header-fixed{
   height:400px;
-  overflow:scroll;
+  overflow-y:scroll;
 }
 .header-fixed thead tr:nth-child(1) th{
   background: white;
