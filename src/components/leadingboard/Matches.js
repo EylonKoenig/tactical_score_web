@@ -8,7 +8,8 @@ const Matches = () => {
     useEffect(() => {
         const getMatches = async () => {
             const matchesData = await api.getAllMatches() ;
-            setMatches(matchesData.reverse());
+            setMatches(matchesData);
+
         };
         getMatches();
     }, []);
