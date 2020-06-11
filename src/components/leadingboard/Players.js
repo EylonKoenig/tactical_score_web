@@ -8,6 +8,8 @@ const PlayersLeaderboard   = () => {
     useEffect(() => {
         const getPlayers = async () => {
             let playersData = await api.getAllPlayers();
+
+            playersData = setFirstPlayerEven(playersData);
             setPlayers(playersData);
 
             let firstPlaceImg = document.getElementById('tr0').childNodes[0];
@@ -25,6 +27,18 @@ const PlayersLeaderboard   = () => {
         getPlayers();
         getBestPlayers();
     }, []);
+
+    const setFirstPlayerEven = (players) => {
+
+        const bestGameWinRate = players[0].winLoseRatio;
+        for(let i = 0; i<players.length;i++){
+            if(players[0].winLoseRatio !== players[i].winLoseRatio) return players;
+            if(players[0].kdRatio < players[i].kdRatio)
+                [players[0], players[i]] = [players[i], players[0]];
+        }
+        return players;
+    };
+
 
     return (
         <div style={{display:'flex'}}>
