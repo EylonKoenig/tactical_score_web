@@ -440,7 +440,7 @@ li {
 .menu {
   list-style: none;
   padding: 0px;
-  margin: 0 auto 0 130px;
+  /*margin: 0 auto 0 130px;*/
 }
 
 .menu li{
@@ -606,11 +606,6 @@ background-image: url('http://tacticalops.sytes.net/imagen/cubo.png');
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
 }
-
-.header-fixed{
-  height:400px;
-  overflow-y:scroll;
-}
 .header-fixed thead tr:nth-child(1) th{
   background: white;
   position: sticky;
@@ -625,5 +620,91 @@ text-align: center;
 #trophy{
   width: 25px;
   height: 30px;
+}
+
+.table-cover{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr { border: 1px solid #ccc; }
+  .table td {
+    padding: unset;
+    text-align: center;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  td:nth-of-type(1):before { content: ""; }
+  td:nth-of-type(2):before { content: "W/L Ratio"; }
+  td:nth-of-type(3):before { content: "Won Games"; }
+  td:nth-of-type(4):before { content: "Lost Games"; }
+  td:nth-of-type(5):before { content: "K/D Ratio"; }
+  td:nth-of-type(6):before { content: "Kill"; }
+  td:nth-of-type(7):before { content: "Death"; }
+
+  .header-fixed{
+    width: 80%;
+    margin: auto;
+  }
+  .removeOnMobile{
+    display: none;
+  }
+
+  .table-cover{
+  flex-direction: column-reverse;
+  }
 }
 

@@ -29,8 +29,6 @@ const PlayersLeaderboard   = () => {
     }, []);
 
     const setFirstPlayerEven = (players) => {
-
-        const bestGameWinRate = players[0].winLoseRatio;
         for(let i = 0; i<players.length;i++){
             if(players[0].winLoseRatio !== players[i].winLoseRatio) return players;
             if(players[0].kdRatio < players[i].kdRatio)
@@ -41,7 +39,7 @@ const PlayersLeaderboard   = () => {
 
 
     return (
-        <div style={{display:'flex'}}>
+        <div className={'table-cover'}>
             <table className="table table-hover header-fixed" style={{display:'block'}}>
                 <thead>
                 <tr  style={{cursor:'auto'}}>
@@ -60,7 +58,7 @@ const PlayersLeaderboard   = () => {
                 players.map((player,i) => (
                     <tr id={`tr${i}`} key={i}>
                             <th scope="row">{i+1}</th>
-                            <td>{player.name}</td>
+                        <td><b>{player.name}</b></td>
                             <td>{player.winLoseRatio}</td>
                             <td>{player.wonGames}</td>
                             <td>{player.lostGames}</td>
@@ -72,7 +70,7 @@ const PlayersLeaderboard   = () => {
                 }
                 </tbody>
             </table>
-            <div>
+            <div style={{margin: '0 auto'}}>
                 {bestPlayers &&
                 <div className='top-players'>
                     <div>MOST GAMES WON: <span style={{fontWeight:"lighter"}}>{bestPlayers["most-games-won"].name}</span></div>

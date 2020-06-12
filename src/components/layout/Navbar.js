@@ -20,13 +20,13 @@ const Navbar = () => {
                                     HOME
                                 </Link>
                             </li>
-                            <li>
+                            <li className={'removeOnMobile'}>
                                 <Link to="/community">
                                     COMMUNITY
                                 </Link>
                             </li>
-                            <li>
-                                <Link to="/downloads">
+                            <li className={'removeOnMobile'}>
+                                <Link  to="/downloads">
                                     DOWNLOADS
                                 </Link>
                             </li>
