@@ -25,11 +25,6 @@ const Navbar = () => {
                                     COMMUNITY
                                 </Link>
                             </li>
-                            <li className={'removeOnMobile'}>
-                                <Link  to="/downloads">
-                                    DOWNLOADS
-                                </Link>
-                            </li>
                             <li>
                                 <Link to="/matches">
                                     MATCHES
@@ -38,6 +33,11 @@ const Navbar = () => {
                             <li>
                                 <Link to="/players">
                                     PLAYERS
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/match_making">
+                                    MATCH MAKING
                                 </Link>
                             </li>
                         </ul>

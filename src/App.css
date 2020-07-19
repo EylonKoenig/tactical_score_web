@@ -515,6 +515,18 @@ background-image: url('http://tacticalops.sytes.net/imagen/cubo.png');
   color:white;
 }
 
+#social{
+  display: flex;
+  position: relative;
+  margin: 10px 0 0px 10px;
+  color:white;
+}
+#social img{
+  margin-right: 15px;
+  height: 50px;
+  width: 50px;
+}
+
 #comunirecu img {
   display: block;
   float: right;

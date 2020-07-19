@@ -29,9 +29,11 @@ const PlayersLeaderboard   = () => {
     }, []);
 
     const setFirstPlayerEven = (players) => {
+        let checkPlace = player => player.wonGames - player.lostGames;
         for(let i = 0; i<players.length;i++){
-            if(players[0].winLoseRatio !== players[i].winLoseRatio) return players;
-            if(players[0].kdRatio < players[i].kdRatio)
+            console.log(checkPlace(players[i]));
+            if(checkPlace(players[0]) !== checkPlace(players[i])) return players;
+            if(players[0].winLoseRatio < players[i].winLoseRatio)
                 [players[0], players[i]] = [players[i], players[0]];
         }
         return players;

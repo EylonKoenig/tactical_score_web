@@ -11,6 +11,7 @@ import addMatch from "./components/leadingboard/AddMatch";
 import Community from "./components/layout/Community";
 import AddPlayerScore from "./components/leadingboard/AddPlayerScore";
 import AddPlayer from './components/leadingboard/AddPlayer'
+import TeamMaking from "./components/layout/TeamMaking";
 
 const App = () => {
   return (
@@ -21,12 +22,13 @@ const App = () => {
               <Route exact path="/community" component={ Community } />
               <Switch>
                   <section className="container">
-                  <Route exact path="/matches" component={ Matches } />
-                  <Route exact path="/match/:id" component={(props) => (<SingelMatch  matchID={props.match.params.id} />)}/>
-                  <Route exact path="/players" component={ Players } />
-                  <Route exact path="/add_match" component={ addMatch } />
-                  <Route exact path="/add_player" component={ AddPlayer } />
-                  <Route exact path="/add_player_score" component={ AddPlayerScore } />
+                      <Route exact path="/matches" component={ Matches } />
+                      <Route exact path="/match/:id" component={(props) => (<SingelMatch  matchID={props.match.params.id} />)}/>
+                      <Route exact path="/players" component={ Players } />
+                      <Route exact path="/add_match" component={ addMatch } />
+                      <Route exact path="/add_player" component={ AddPlayer } />
+                      <Route exact path="/add_player_score" component={ AddPlayerScore } />
+                      <Route exact path="/match_making" component={ TeamMaking } />
                   </section>
               </Switch>
           </Fragment>
