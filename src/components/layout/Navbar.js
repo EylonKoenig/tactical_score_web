@@ -36,9 +36,9 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/match_making">
-                                    MATCH MAKING
-                                </Link>
+                                {/*<Link to="/match_making">*/}
+                                {/*    MATCH MAKING*/}
+                                {/*</Link>*/}
                             </li>
                         </ul>
                     </div>
